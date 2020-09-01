@@ -6,6 +6,7 @@
   - [index.html](./index.html)
   - [_coverpage.md](./_coverpage.md)
   - [_sidebar.md](./_sidebar.md)
+  - [_navbar.md](./_navbar.md)
   - [README.md](README.md)
   - [about](./about.md)
 -->
