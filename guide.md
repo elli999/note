@@ -12,7 +12,7 @@
 -->
 
 + [IT](/IT/README.md)
-  - [Software](/IT/Software/)
+  - [Software](/IT/Software/README.md)
     * [Static-Site-Genator](/IT/Software/Static-Site-Genator/)
       + Docsify
         - [Documentation](/IT/Software/Static-Site-Genator/Docsify/Documentation/README.md)
