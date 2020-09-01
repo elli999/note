@@ -1,0 +1,93 @@
+---
+title: index
+date: 2020-05-14 19:00:00
+---
+
+vimwiki本地目录（索引），仅用于本地。
+
+
+<!-- vim-markdown-toc Redcarpet -->
+
++ [未分类](#未分类)
++ [IT](#it)
++ [笔记方法学](#笔记方法学)
+
+<!-- vim-markdown-toc -->
+
+<!-- more -->
+
+------------------------------------------------------------------------------------------------
+
+# 未分类
+[hello world](hello-world)
+
+---
+
+== 缩进法 ==
+
+---
+
+# IT
+
+	## Coding
+	
+		### Go
+		[Go笔记](Go笔记)
+		[Go语言安装与配置](Go语言安装与配置)
+		
+		### HTML
+		[HTML笔记](HTML笔记)
+		
+	
+	## OS
+	
+		### Linux
+		[Linux-日常使用](Linux-日常使用)
+		[Linux笔记](Linux笔记)
+		
+			#### Ubuntu
+		
+		
+		### Windows
+		[Windows-日常使用](Windows-日常使用)
+	
+	## Software
+	[Github笔记](Github笔记)
+	[Visual Studio Code笔记](Visual Studio Code笔记)
+	
+		### Hexo
+		[Hexo笔记](Hexo笔记)
+		[Hexo基础](Hexo基础)
+		[Hexo+Markdown+Vim打造无敌笔记系统](Hexo+Markdown+Vim打造无敌笔记系统)
+		
+		### Vim
+		[Vim笔记](Vim笔记)
+		[Vim命令](Vim命令)
+		[Vim插件](Vim插件)
+		[Vim遇到的问题](Vim遇到的问题)
+
+---
+
+# 笔记方法学
+[Hexo笔记](Hexo笔记)
+[Hexo基础](Hexo基础)
+[Hexo+Markdown+Vim打造无敌笔记系统](Hexo+Markdown+Vim打造无敌笔记系统)
+
+== 表格法1 ==
+
+> 初步：不好看，不直观。
+
+|     1      |                                   2                                    |            3             |                  4                   |
+|:----------:|:----------------------------------------------------------------------:|:------------------------:|:------------------------------------:|
+| 笔记方法学 | [Hexo+Markdown+Vim打造无敌笔记系统](Hexo+Markdown+Vim打造无敌笔记系统) |                          |                                      |
+| 笔记方法学 |                          [Hexo笔记](Hexo笔记)                          |                          |                                      |
+|     IT     |                                 Coding                                 |           HTML           |         [HTML笔记](HTML笔记)         |
+|     IT     |                                   OS                                   |          Linux           |   [Linux-日常使用](Linux-日常使用)   |
+|     IT     |                                   OS                                   |          Linux           |        [Linux笔记](Linux笔记)        |
+|     IT     |                                   OS                                   |          Linux           |                Ubuntu                |
+|     IT     |                                   OS                                   |         Windows          | [Windows-日常使用](Windows-日常使用) |
+|     IT     |                                Software                                |    [VIM笔记](VIM笔记)    |                                      |
+|     IT     |                                Software                                | [Github笔记](Github笔记) |                                      |
+
+
+
