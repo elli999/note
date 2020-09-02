@@ -15,14 +15,14 @@ Go语言的安装与配置，以及常见问题。
 
 + [下载](#下载)
 + [安装](#安装)
-	* [Windows](#windows)
-	* [Linux](#linux)
-	* [Mac](#mac)
-	* [检查安装情况](#检查安装情况)
+    * [Windows](#windows)
+    * [Linux](#linux)
+    * [Mac](#mac)
+    * [检查安装情况](#检查安装情况)
 + [配置环境变量](#配置环境变量)
 + [Go开发编辑器](#go开发编辑器)
-	* [Goland](#goland)
-	* [VS Code](#vs-code)
+    * [Goland](#goland)
+    * [VS Code](#vs-code)
 + [Hello World!](#hello-world)
 + [参考](#参考)
 
@@ -106,13 +106,13 @@ Go采用的是UTF-8编码的文本文件存放源代码，理论上使用任何�
 
 <!-- consider to delete the first pic below, if it didn't animat -->
 
-![VSC汉化](VSC汉化.png)
+![VSC汉化](./Go-Installation/VSC汉化.png)
 
-![VSC界面](VSC界面.png)
+![VSC界面](./Go-Installation/VSC界面.png)
 
 现在我们要为我们的VS Code编辑器安装Go扩展插件，让它支持Go语言开发。点击上图中的“管理扩展”按钮。
 
-![VSC插件](VSC插件.png)
+![VSC插件](./Go-Installation/VSC插件.png)
 
 点击“管理扩展”按钮后搜索“Go”，出来的第一个插件（上图）选择安装即可。
 
@@ -122,21 +122,21 @@ Go采用的是UTF-8编码的文本文件存放源代码，理论上使用任何�
 
 如果你打开VS Code的终端界面出现如下图场景（注意观察红框圈中部分），那么你的VS Code此时正使用powershell作为默认终端：
 
-![VSC_powershell](VSC_powershell.png)
+![VSC_powershell](./Go-Installation/VSC_powershell.png)
 
 建议改为`cmd.exe`作为默认的终端工具：
 
-![VSC_cmd1](VSC_cmd1.png)
+![VSC_cmd1](./Go-Installation/VSC_cmd1.png)
 
 此时，VS Code正上方中间位置会弹出如下界面，参照下图挪动鼠标使光标选中后缀为cmd.exe的那一个，然后点击鼠标左键。
 
-![VSC_cmd2](VSC_cmd2.png)
+![VSC_cmd2](./Go-Installation/VSC_cmd2.png)
 
 最后重启VS Code中已经打开的终端或者直接重启VS Code就可以了。
 
 如果没有出现下拉三角，也没有关系，按下`Ctrl`+`Shift`+`P`，VS Code正上方会出现一个框，你按照下图输入shell，然后点击指定选项即可出现上面的界面了。 
 
-![VSC_cmd3](VSC_cmd3.png)
+![VSC_cmd3](./Go-Installation/VSC_cmd3.png)
 
 <br>
 

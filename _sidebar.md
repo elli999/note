@@ -5,19 +5,21 @@
 + [IT](/IT/)
   - [Coding](/IT/Coding/README.md)
     * [Go](/IT/Coding/Go/README.md)
-      + [Go-Note](/IT/Coding/Go/Go-Note.md)
-      + [Go-Installation](/IT/Coding/Go/Go-Installation.md)
+      + [Dict](/IT/Coding/Go/Go-Dict.md)
+      + [Command](/IT/Coding/Go/Go-Command.md)
+      + [Installation](/IT/Coding/Go/Go-Installation.md)
+      + [Goland](/IT/Coding/Go/Goland.md)
   - [Software](/IT/Software/)
-    * [Static-Site-Genator](/IT/Software/Static-Site-Genator/)
-      + Docsify
+    * [Static Site Genator](/IT/Software/Static-Site-Genator/)
+      + [Docsify](/IT/Software/Static-Site-Genator/Docsify/README.md)
+        - [Note](/IT/Software/Static-Site-Genator/Docsify/Docsify-Note.md)
         - [Documentation](/IT/Software/Static-Site-Genator/Docsify/Documentation/README.md)
-        - [Docsify Note](/IT/Software/Static-Site-Genator/Docsify/Docsify-Note.md)
       + [Hugo](/IT/Software/Static-Site-Genator/)
       + [VuePress](/IT/Software/Static-Site-Genator/VuePress/)
     * Vim
-      + [Vim-Command](./IT/Software/Vim/Vim-Command.md)
+      + [Note](./IT/Software/Vim/Vim-Note.md)
+      + [Command](./IT/Software/Vim/Vim-Command.md)
       + [Vim插件](./IT/Software/Vim/Vim插件.md)
-      + [Vim笔记](./IT/Software/Vim/Vim笔记.md)
       + [Vim遇到的问题](./IT/Software/Vim/Vim遇到的问题.md)
 
 ---
