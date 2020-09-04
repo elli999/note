@@ -28,6 +28,7 @@
         - [Note](/IT/Software/Static-Site-Genator/Docsify/Docsify-Note.md)
         - [Documentation](/IT/Software/Static-Site-Genator/Docsify/Documentation/README.md)
           * [_sidebar.md](/IT/Software/Static-Site-Genator/Docsify/Documentation/_sidebar.md)
+        - [Plugin](/IT/Software/Static-Site-Genator/Docsify/Docsify-Plugin.md)
       + [Hugo](/IT/Software/Static-Site-Genator/Hugo/README.md)
         - [Note](/IT/Software/Static-Site-Genator/Hugo/Hugo-Note.md)
         - [Documentation](/IT/Software/Static-Site-Genator/Hugo/Hugo-Documentation/README.md) -- 资料未拷进来

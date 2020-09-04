@@ -7,6 +7,7 @@
   <meta name="description" content="Description">
   <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+  <link rel="stylesheet" href="sidebar-folder.css" />
 </head>
 <body>
   <div id="app"></div> <!--you can add text in here, default is "Loading...", you can change to "加载中"-->
@@ -22,8 +23,12 @@
       //logo: '/_media/ek_favicon.png',
       // coverpage: true,
       loadSidebar: true,
+      <!--这一段要学习一下，为什么？-->
+      alias: {
+        '/.*/_sidebar.md': '/_sidebar.md', 
+      },
+      subMaxLevel: 3,  // sidebar设置：根据用户设定的标题层级数值，把文章中的标题加入到sidebar里面。例如如果设定值为2，则把 # 和 ## 的标题加入，三级及以后的不加入
       autoHeader: true, // （应该是是默认打开的了，即设置为true没有变化）
-      subMaxLevel: 2,  // sidebar设置：根据用户设定的标题层级数值，把文章中的标题加入到sidebar里面。例如如果设定值为2，则把 # 和 ## 的标题加入，三级及以后的不加入
       loadNavbar: true,
       auto2top: true,  // 切换页面后是否自动跳转到页面顶部
       name: 'Eason Kong Note', // Website name as it appears in the sidebar.
@@ -52,8 +57,11 @@
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <!--Mermaid-->
   <script src="//unpkg.com/mermaid/dist/mermaid.js"></script>
   <script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"> 
   <script>mermaid.initialize({ startOnLoad: true });</script>
+  <!--Sidebar collapse-->
+  <script src="//unpkg.com/docsify-sidebar-collapse/dist/docsify-sidebar-collapse.min.js"></script>
 </body>
 </html>
