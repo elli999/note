@@ -33,6 +33,84 @@ Docsify is the most easiest Static Site Genator(SSG) I ever met.
 
 ---
 
+## My Docsify index file
+
+```HTML
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="description" content="Description">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/docsify/lib/themes/vue.css">
+</head>
+<body>
+  <div id="app"></div> <!--you can add text in here, default is "Loading...", you can change to "加载中"-->
+  <nav>
+    <a href="#/">EN</a>
+    <a href="#/IT/">IT</a>
+  </nav>
+  <script>
+    window.$docsify = {
+      name: '',
+      repo: '',
+      homepage: 'README.md',
+      //logo: '/_media/ek_favicon.png',
+      // coverpage: true,
+      loadSidebar: true,
+      autoHeader: true, // （应该是是默认打开的了，即设置为true没有变化）
+      subMaxLevel: 2,  // sidebar设置：根据用户设定的标题层级数值，把文章中的标题加入到sidebar里面。例如如果设定值为2，则把 # 和 ## 的标题加入，三级及以后的不加入
+      loadNavbar: true,
+      auto2top: true,  // 切换页面后是否自动跳转到页面顶部
+      name: 'Eason Kong Note', // Website name as it appears in the sidebar.
+      noEmoji: true,
+      maxLevel: 5,  // 最大支持渲染的标题层级?
+      // 全文搜索 plugin
+      search: {
+        //maxAge: 86400000,  // 过期时间，单位毫秒，默认一天
+        paths: 'auto',
+        placeholder: 'Type to search',
+        noData: 'No Result!',
+        // 搜索标题的最大层级，1 - 6
+        depth: 2,
+        hideOtherSidebarContent: true // 激活搜索框时是否隐藏原有的sidebar内容
+      },
+      formatUpdated: '{MM}/{DD} {HH}:{mm}',
+      pagination: {
+        previousText: 'Pre Page',
+        nextText: 'Next Page',
+        crossChapter: true,
+        crossChapterText: true,
+      },
+    }
+  </script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/docsify.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/search.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify/lib/plugins/zoom-image.min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/docsify-pagination/dist/docsify-pagination.min.js"></script>
+  <script src="//unpkg.com/mermaid/dist/mermaid.js"></script>
+  <script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"> 
+  <script>mermaid.initialize({ startOnLoad: true });</script>
+</body>
+</html>
+```
+
+## Mermaid
+
+[https://github.com/Leward/mermaid-docsify](https://github.com/Leward/mermaid-docsify)
+
+Add these in the `index.html` file:
+
+```
+<script src="//unpkg.com/mermaid/dist/mermaid.js"></script>
+<script src="//unpkg.com/docsify-mermaid@latest/dist/docsify-mermaid.js"> 
+<script>mermaid.initialize({ startOnLoad: true });</script>
+```
+
+now you can include mermaid diagrams in your docsify docs.
+
 ## 心得
 
 * sidebar暂时不知道如何设成可展开和收缩的，所以所有文件都会全部显示出来，文章一多就很混乱，十分不美观。但是根据文章里面的标题（即# ## ### ... 的标题二、标题三）自动会在sidebar生成的TOC，则可以点一下展开、再点一下收起。

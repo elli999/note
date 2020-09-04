@@ -1,6 +1,8 @@
 
 > All notes guides here!
 
+<!-- sidebar最多只能显示5级 -->
+
 <!-- for vimwiki
 = Docsify Config =
 + Config
@@ -15,7 +17,7 @@
 + [IT](/IT/README.md)
   - [Coding](/IT/Coding/README.md)
     * [Go](/IT/Coding/Go/README.md)
-      + [Dict](/IT/Coding/Go/Go-Dict.md)
+      + [Note](/IT/Coding/Go/Go-Note.md)
       + [Installation](/IT/Coding/Go/Go-Installation.md)
       + [Goland](/IT/Coding/Go/Goland.md)
       + [Command](/IT/Coding/Go/Go-Command.md)
@@ -25,6 +27,7 @@
       + [Docsify](/IT/Software/Static-Site-Genator/Docsify/README.md)
         - [Note](/IT/Software/Static-Site-Genator/Docsify/Docsify-Note.md)
         - [Documentation](/IT/Software/Static-Site-Genator/Docsify/Documentation/README.md)
+          * [_sidebar.md](/IT/Software/Static-Site-Genator/Docsify/Documentation/_sidebar.md)
       + [Hugo](/IT/Software/Static-Site-Genator/Hugo/README.md)
         - [Note](/IT/Software/Static-Site-Genator/Hugo/Hugo-Note.md)
         - [Documentation](/IT/Software/Static-Site-Genator/Hugo/Hugo-Documentation/README.md) -- 资料未拷进来
@@ -49,3 +52,7 @@
     * [Nonviolent-Communication-3rd](./Book/Nonviolent-Communication-3rd.md)
 -->
 
+```mermaid
+graph TB
+  id1(A)-->id2[B]
+```

@@ -1,50 +1,53 @@
 
 <!-- vim-markdown-toc Redcarpet -->
 
-* [Concept](#concept)
-    - [GOROOT](#goroot)
-    - [GOPATH](#gopath)
-    - [GOPATH](#gopath)
-    - [数据类型](#数据类型)
-        + [基本数据类型](#基本数据类型)
-            * [布尔类型bool](#布尔类型bool)
-            * [数值类型](#数值类型)
-                - [整型](#整型)
-                - [浮点型](#浮点型)
-                - [xx型](#xx型)
-            * [字符串string](#字符串string)
-        + [复合数据类型](#复合数据类型)
-    - [占位符](#占位符)
-    - [转义字符](#转义字符)
-* [Usage](#usage)
-    - [Naming Rule命名规则](#naming-rule命名规则)
-        + [变量命名](#变量命名)
-        + [常量命名](#常量命名)
-    - [Main](#main)
-    - [Comment注释](#comment注释)
-        + [**single line comment**](#single-line-comment)
-        + [**multi line comment**](#multi-line-comment)
-    - [Import](#import)
-    - [Compile编译](#compile编译)
-    - [variable变量](#variable变量)
-        + [变量的定义](#变量的定义)
-        + [变量的调用](#变量的调用)
-        + [全局变量](#全局变量)
-    - [constant常量](#constant常量)
-        + [常量的定义](#常量的定义)
-    - [iota](#iota)
+* [GOROOT](#goroot)
+* [GOPATH](#gopath)
+* [数据类型](#数据类型)
+    - [基本数据类型](#基本数据类型)
+        + [布尔类型bool](#布尔类型bool)
+    - [数值类型](#数值类型)
+        + [整型](#整型)
+        + [浮点型](#浮点型)
+        + [xx型](#xx型)
+        + [字符串string](#字符串string)
+    - [复合数据类型](#复合数据类型)
+* [print&scan](#print-amp-scan)
+    - [fmt包：输入、输出](#fmt包：输入、输出)
+    - [bufio包](#bufio包)
+* [占位符](#占位符)
+* [转义字符](#转义字符)
+* [Naming Rule命名规则](#naming-rule命名规则)
+    - [变量命名](#变量命名)
+    - [常量命名](#常量命名)
+* [Main](#main)
+* [Comment注释](#comment注释)
+    - [**single line comment**](#single-line-comment)
+    - [**multi line comment**](#multi-line-comment)
+* [Import](#import)
+* [Compile编译](#compile编译)
+* [variable变量](#variable变量)
+    - [变量的定义](#变量的定义)
+    - [变量的调用](#变量的调用)
+    - [全局变量](#全局变量)
+* [constant常量](#constant常量)
+    - [常量的定义](#常量的定义)
+* [iota](#iota)
+* [if](#if)
 
 <!-- vim-markdown-toc -->
 
 ---
 
-## Concept
-
-### GOROOT
+## GOROOT
 
 GOROOT is GOLANG installation directory. Also is a Environment Variable and needs be written into system setting.
 
-### GOPATH
+<br>
+
+---
+
+## GOPATH
 
 Gopath is Go workspace that save all GO project and code file.
 
@@ -58,23 +61,22 @@ There are three subdirectory in `GOPATH`:
 > `pkg` -- When compilation is done, GOLANG will creat a result file in here.
 > `bin` -- A folder full of generated executable file.
 
-### GOPATH
 
-### 数据类型
+## 数据类型
 
-#### 基本数据类型
+### 基本数据类型
 
-##### 布尔类型bool
+#### 布尔类型bool
 
 取值
 
-##### 数值类型
+### 数值类型
 
-###### 整型
-###### 浮点型
-###### xx型
+#### 整型
+#### 浮点型
+#### xx型
 
-##### 字符串string
+#### 字符串string
 
 定义 
 ```
@@ -96,20 +98,66 @@ s1 = "王二狗"
 
 也可以正常输出 `"` 号
 
-#### 复合数据类型
+### 复合数据类型
 
-### 占位符
+<br>
+
+---
+
+## print&scan
+
+### fmt包：输入、输出
+
+Print() // 打印
+
+Printf()  // 格式化打印（即后面加占位符）
+
+Println()  // 打印之后换行
+
+Scanln()  // 读取键盘的输入，通过操作地址，赋值给x和y（阻塞式）
+
+Scanf()  // 
+
+> 所有的键盘输入都是阻塞式的
+
+### bufio包
+
+```Go
+fmt.Println("请输入一个字符串：")
+reader := bufio.NewReader(os.Stdin)
+s1,_ := reader.ReadString('\n')
+fmt.Println("读到的数据：", s1)
+```
+
+<br>
+
+---
+
+
+## 占位符
+
+一般用于Printf()的格式化打印中
 
 | 输入  | 输出                   |
 | :---: | :---:                  |
 | %T    | 显示变量是什么数据类型 |
-| %d    | 整型                   |
-| %t    | 布尔类型               |
+| %v    | 原样输出               |
+| %d    | 十进制整数             |
+| %t    | bool类型               |
 | %f    | 浮点类型               |
 | %s    | 字符串                 |
+| %b    | 二进制整数             |
+| %o    | 八进制整数             |
+| %c    | character              |
+| %p    | 内存地址               |
+| %x    | 16进制 0-9, a-f        |
+| %X    | 16进制 0-9, A-F        |
 
+<br>
 
-### 转义字符
+---
+
+## 转义字符
 
 | 输入  | 输出   |
 | :---: | :---:  |
@@ -117,21 +165,25 @@ s1 = "王二狗"
 | \t    | 制表符 |
 | \"    | "      |
 
+<br>
+
 ---
 
-## Usage
+## Naming Rule命名规则
 
-### Naming Rule命名规则
-
-#### 变量命名
+### 变量命名
 
 
 
-#### 常量命名
+### 常量命名
 
 所有字母都要大写
 
-### Main
+<br>
+
+---
+
+## Main
 
 用于声明一个文件是主文件main，即这个项目starts from here。
 
@@ -145,15 +197,19 @@ func main(){
 }
 ```
 
-### Comment注释
+<br>
 
-#### **single line comment**
+---
+
+## Comment注释
+
+### **single line comment**
 
 ```Go
 // single line comment
 ```
 
-#### **multi line comment**
+### **multi line comment**
 
 ```Go
 /* multi line comment
@@ -170,7 +226,11 @@ or
 */
 ```
 
-### Import
+<br>
+
+---
+
+## Import
 
 **Format:** `import "package name"`
 
@@ -180,15 +240,23 @@ or
 import "fmt"
 ```
 
-### Compile编译
+<br>
+
+---
+
+## Compile编译
 
 使用terminal进入项目文件夹内，运行`go build`命令进行编译。
 
 > `go build`命令具体用法请查看`Command`文档。
 
-### variable变量
+<br>
 
-#### 变量的定义
+---
+
+## variable变量
+
+### 变量的定义
 
 变量的定义有两种方法：
 
@@ -270,19 +338,19 @@ var (
 fmt.Printf("学生姓名：%s，年龄：%d，性别：%s\n", studentName, age, sex)
 ```
 
-#### 变量的调用
+### 变量的调用
 
 
 
-#### 全局变量
+### 全局变量
 
 <br>
 
 ---
 
-### constant常量
+## constant常量
 
-#### 常量的定义
+### 常量的定义
 
 常量命名约定俗成要全部大写。
 
@@ -295,8 +363,36 @@ fmt.Printf("学生姓名：%s，年龄：%d，性别：%s\n", studentName, age, 
 
 ---
 
-### iota
+## iota
 
 * 每当定义一个const，iota的初始值为0。
 * 每当定义一个常量，iota就会自动累加1。
 * 直到下一个const出现，iota归0。
+
+<br>
+
+---
+
+## if
+
+语法格式：
+
+```Go
+if 条件表达式{
+    //
+}
+```
+
+```mermaid
+graph TD
+A{if语句的条件 -- bool类型}
+B[if语句后大括号中的内容]
+C[结束]
+A -->|ture| B
+B --> C
+A -->|false| C
+```
+
+<br>
+
+---

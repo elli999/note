@@ -107,3 +107,28 @@ num := c << 2
 ---
 
 ## 赋值运算符
+
+包括 `=` `+=` `-=` `*=` `/=` `%=` `<<=` `>>=` `&=` `|=` `^=` ... 
+
+```Go
+var a int
+a = 3
+fmt.Println(a)
+
+a += 4 // a = a + 4
+fmt.Println(a)  // 7
+
+a -= 3
+fmt.Println(a)  // 4
+
+a *= 2
+fmt.Println(a)  // 8
+
+a /= 3
+fmt.Println(a)  // 2
+
+a %= 1
+fmt.Println(a)  // 0
+```
+
+<++>
