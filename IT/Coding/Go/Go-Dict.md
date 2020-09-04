@@ -4,6 +4,18 @@
 * [Concept](#concept)
     - [GOROOT](#goroot)
     - [GOPATH](#gopath)
+    - [GOPATH](#gopath)
+    - [数据类型](#数据类型)
+        + [基本数据类型](#基本数据类型)
+            * [布尔类型bool](#布尔类型bool)
+            * [数值类型](#数值类型)
+                - [整型](#整型)
+                - [浮点型](#浮点型)
+                - [xx型](#xx型)
+            * [字符串string](#字符串string)
+        + [复合数据类型](#复合数据类型)
+    - [占位符](#占位符)
+    - [转义字符](#转义字符)
 * [Usage](#usage)
     - [Naming Rule命名规则](#naming-rule命名规则)
         + [变量命名](#变量命名)
@@ -20,6 +32,7 @@
         + [全局变量](#全局变量)
     - [constant常量](#constant常量)
         + [常量的定义](#常量的定义)
+    - [iota](#iota)
 
 <!-- vim-markdown-toc -->
 
@@ -44,6 +57,65 @@ There are three subdirectory in `GOPATH`:
 > `src` -- In **src**, every subdirectory is a package. Source code files are stored in package.
 > `pkg` -- When compilation is done, GOLANG will creat a result file in here.
 > `bin` -- A folder full of generated executable file.
+
+### GOPATH
+
+### 数据类型
+
+#### 基本数据类型
+
+##### 布尔类型bool
+
+取值
+
+##### 数值类型
+
+###### 整型
+###### 浮点型
+###### xx型
+
+##### 字符串string
+
+定义 
+```
+var s1 string
+s1 = "王二狗"
+```
+
+```
+"hello`world`"
+```
+
+可以正常输出 ` 号
+
+反过来
+
+```
+`hello"world"`
+```
+
+也可以正常输出 `"` 号
+
+#### 复合数据类型
+
+### 占位符
+
+| 输入  | 输出                   |
+| :---: | :---:                  |
+| %T    | 显示变量是什么数据类型 |
+| %d    | 整型                   |
+| %t    | 布尔类型               |
+| %f    | 浮点类型               |
+| %s    | 字符串                 |
+
+
+### 转义字符
+
+| 输入  | 输出   |
+| :---: | :---:  |
+| \n    | 换行   |
+| \t    | 制表符 |
+| \"    | "      |
 
 ---
 
@@ -218,3 +290,13 @@ fmt.Printf("学生姓名：%s，年龄：%d，性别：%s\n", studentName, age, 
 
 * 显式类型定义： `const b string = "abc"`
 * 隐式类型定义： `const b = "abc"`
+
+<br>
+
+---
+
+### iota
+
+* 每当定义一个const，iota的初始值为0。
+* 每当定义一个常量，iota就会自动累加1。
+* 直到下一个const出现，iota归0。

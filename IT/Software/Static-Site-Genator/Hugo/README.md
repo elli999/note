@@ -1,13 +1,4 @@
----
-title: "Static Site Generator"
-date: 2020-08-25T13:33:21+08:00
----
 
-<!--
-
->>> Hidden Directory <<<
-
-[<Hugo-Documentation>](./Hugo-Documentation/_index)
-[<hugo-theme-learn>](./hugo-theme-learn/_index)
-
--->
+- [Note](/IT/Software/Static-Site-Genator/Hugo/Hugo-Note.md)
+- [Documentation](/IT/Software/Static-Site-Genator/Hugo/Hugo-Documentation/README.md) -- 未有资料
+- [Theme LEARN](/IT/Software/Static-Site-Genator/Hugo/hugo-theme-learn/_index.md)
