@@ -1,6 +1,7 @@
 
 <!-- vim-markdown-toc Redcarpet -->
 
+* [Showcase](#showcase)
 * [Q&A](#q-amp-a)
 * [Concept](#concept)
     - [Chapter Page & List page](#chapter-page-amp-list-page)
@@ -10,6 +11,14 @@
     - [draft: true](#draft-true)
 
 <!-- vim-markdown-toc -->
+
+<br>
+
+---
+
+## Showcase
+
+https://themes.gohugo.io/hugo-theme-learn/
 
 ## Q&A
 

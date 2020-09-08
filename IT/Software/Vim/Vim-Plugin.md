@@ -1,36 +1,26 @@
----
-title: Vim插件
-tags:
-  - Vim
-  - Plug
-  - 插件
-categories:
-    - [+IT, Software, Vim]
-date: 2020-08-02 18:08:26
----
-
-# Table of Content
-
 
 <!-- vim-markdown-toc Redcarpet -->
 
-+ [插件管理器](#插件管理器)
-	* [vim-plug](#vim-plug)
-+ [插件](#插件)
-	* [外观类](#外观类)
-		- [lightline.vim状态栏插件](#lightline-vim状态栏插件)
-		- [vim-airline状态栏插件](#vim-airline状态栏插件)
-		- [vim-snazzy配色插件](#vim-snazzy配色插件)
-	* [未分类](#未分类)
-		- [vimwiki插件](#vimwiki插件)
-			+ [Key Shortcuts](#key-shortcuts)
-			+ [Commands](#commands)
-		- [vim-markdown插件](#vim-markdown插件)
-		- [Markdown-preview插件](#markdown-preview插件)
-		- [easymotion插件](#easymotion插件)
-		- [vim-markdown-toc插件](#vim-markdown-toc插件)
-			+ [Commands](#commands)
-			+ [Options](#options)
+* [插件管理器](#插件管理器)
+    - [vim-plug](#vim-plug)
+* [Plugin](#plugin)
+    - [外观类](#外观类)
+        + [lightline.vim状态栏插件](#lightline-vim状态栏插件)
+        + [vim-airline状态栏插件](#vim-airline状态栏插件)
+        + [vim-snazzy配色插件](#vim-snazzy配色插件)
+    - [未分类](#未分类)
+        + [vimwiki插件](#vimwiki插件)
+            * [Key Shortcuts](#key-shortcuts)
+            * [Commands](#commands)
+        + [vim-markdown插件](#vim-markdown插件)
+        + [Markdown-preview插件](#markdown-preview插件)
+        + [easymotion插件](#easymotion插件)
+        + [vim-markdown-toc插件](#vim-markdown-toc插件)
+            * [Commands](#commands)
+            * [Options](#options)
+        + [B站某个视频下看到的好插件记录](#b站某个视频下看到的好插件记录)
+            * [Plugin CTRLP](#plugin-ctrlp)
+                - [gVim Config](#gvim-config)
 
 <!-- vim-markdown-toc -->
 
@@ -39,9 +29,9 @@ date: 2020-08-02 18:08:26
 
 ---
 
-# 插件管理器
+## 插件管理器
 
-## vim-plug
+### vim-plug
 
 [Github vim-plug](https://github.com/junegunn/vim-plug)
 
@@ -117,13 +107,13 @@ call plug#end()
 然后打开vim，输入`:PlugClean`会自动删除不在`vimrc`列表的插件。
 
 
-# 插件
+## Plugin
 
 <font size=5>以下内容为本人用过的插件的使用记录。</font>
 
-## 外观类
+### 外观类
 
-### lightline.vim状态栏插件
+#### lightline.vim状态栏插件
 
 [Link](https://github.com/itchyny/lightline.vim)
 
@@ -138,7 +128,7 @@ call plug#end()
 
 <br>
 
-### vim-airline状态栏插件
+#### vim-airline状态栏插件
 
 > 在lightline.vim状态栏插件首页好像说这个airline插件依赖太多其他Vim的功能，或其它插件。我个人在Windows下使用过程中偶有报错，并且对比lightline.vim之后，觉得lightline.vim确实如作者所说的更简洁、轻量。所以转去使用lightline.vim了。
 
@@ -149,7 +139,7 @@ call plug#end()
 
 <br>
 
-### vim-snazzy配色插件
+#### vim-snazzy配色插件
 
 > 其实只是一个配色文件，只是可以通过插件形式安装。
 
@@ -184,9 +174,9 @@ let g:SnazzyTransparent = 1
 <br>
 
 
-## 未分类
+### 未分类
 
-### vimwiki插件
+#### vimwiki插件
 
 [vimwiki中文网址](https://github.com/vimwiki/vimwiki/blob/master/README-cn.md)
 
@@ -260,7 +250,7 @@ vimwiki会自动在上面设定的`path`下创建一个index.md文件，可以�
 
 
 
-#### Key Shortcuts
+##### Key Shortcuts
 
 normal 模式:
 
@@ -279,7 +269,7 @@ normal 模式:
 更多快捷键说明，请阅 `:h vimwiki-mappings`
 
 
-#### Commands
+##### Commands
 
 ```
 :VimwikiTOC
@@ -292,7 +282,7 @@ normal 模式:
 ---
 
 
-### vim-markdown插件
+#### vim-markdown插件
 
 [Github地址]()
 
@@ -325,7 +315,7 @@ let g:vim_markdown_math = 1    " 打开latex支持
 :TableFormat
 ```
 
-### Markdown-preview插件
+#### Markdown-preview插件
 
 [Github主页](https://github.com/iamcco/markdown-preview.nvim)
 
@@ -378,14 +368,14 @@ func! CompileRunGcc2()
 endfunc
 ```
 
-### easymotion插件
+#### easymotion插件
 
 快速把光标跳转、定位到指定位置
 
 [PegasusWang视频《vim easymotion 瞬间移动大法》](https://www.bilibili.com/video/BV1mE411t76N)
 
 
-### vim-markdown-toc插件
+#### vim-markdown-toc插件
 
 一个可在光标当前位置自动生成目录(`Tablc of Content`，缩写`TOC`)的插件，可以跳转、自动更新。
 
@@ -397,7 +387,7 @@ endfunc
 
 [中文说明](https://mazhuang.org/2015/12/19/vim-markdown-toc/)
 
-#### Commands
+##### Commands
 
 * 生成目录
 
@@ -443,7 +433,7 @@ The `:UpdateToc` command, which is designed to update toc manually, can only wor
 :RemoveToc
 ```
 
-#### Options
+##### Options
 
 ```Vim Script
 " This plugin will update existing table of contents on save automatic.
@@ -466,9 +456,92 @@ let g:vmt_list_item_char = "*"
 let g:vmt_include_headings_before = 0
 ```
 
+<br>
+
+---
 
 
---------
+
+#### B站某个视频下看到的好插件记录
+
+> 待逐个安装试用后投入使用
+
+围绕添加粗体
+
+https://stackoverflow.com/questions/32769488/double-vim-surround-with
+
+Surround vim插件
+
+Surrounding插件
+
+markdown.vim插件？
+
+add the following to your ~/.vim/after/ftplugin/markdown.vim
+let b:surround_{char2nr('b)} = "**\r**"
+
+ysiw b
+
+
+
+-=------------------------------------
+
+vim-expand-region插件
+
+Plug 'terryma/vim-expand-region'
+
+vmap v <Plug>(expand_region_expand)
+vmap <C-v> <Plug>(expand_region_shrink)
+
+---------------------
+
+Git：
+
+.gitignore文件
+
+记录需要上传的文件？
+
+------------------
+
+MRU插件
+
+在C:\Users\Administrator\.vim_runtime\sources_non_forked\mru.vim\plugin 的mru.vim 吗？
+
+nnoremap <buffer> <silent> <CR>
+	"\ :call <SID>MRU_Select_File_Cmd('edit,useopen')<CR>
+	\ :call <SID>MRU_Select_File_Cmd('edit,newtab')<CR>
+vnoremap <buffer> <silent> <CR>
+	"\ :call <SID>MRU_Select_File_Cmd('edit,useopen')<CR>
+	\ :call <SID>MRU_Select_File_Cmd('edit,newtab')<CR>
+
+我觉得应该写在vimrc内的
+
+
+---
+
+CTRLP插件
+
+最近使用过的文件
+
+kien/ctrlp
+
+##### Plugin CTRLP
+
+```vim
+nnoremap <A-m> :CtrlPMRUFiles<CR>
+vnoremap <A-m> :CtrlPMRUFiles<CR>
+```
+--------------
+
+###### gVim Config
+
+在vimrc中判断是否gvim，把gvim 和vim的配置文件区分开
+
+is gui_running
+
+```vim
+if has("gui_running")
+```
 
 <br>
 
+---

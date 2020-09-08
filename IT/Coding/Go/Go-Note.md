@@ -12,6 +12,7 @@
         + [xx型](#xx型)
         + [字符串string](#字符串string)
     - [复合数据类型](#复合数据类型)
+        + [array数组](#array数组)
 * [print&scan](#print-amp-scan)
     - [fmt包：输入、输出](#fmt包：输入、输出)
     - [bufio包](#bufio包)
@@ -34,6 +35,10 @@
     - [常量的定义](#常量的定义)
 * [iota](#iota)
 * [if](#if)
+* [if...else...](#if-else)
+* [switch](#switch)
+* [for](#for)
+* [goto](#goto)
 
 <!-- vim-markdown-toc -->
 
@@ -65,6 +70,8 @@ There are three subdirectory in `GOPATH`:
 ## 数据类型
 
 ### 基本数据类型
+
+数值、浮点、字符串
 
 #### 布尔类型bool
 
@@ -100,7 +107,44 @@ s1 = "王二狗"
 
 ### 复合数据类型
 
-<br>
+包含array, slice, map, struct, pointer, function, channel ...
+
+#### array数组
+
+**概念：** 存储一组相同数据类型的数据结构。可理解为容器，存储一组数据。
+
+`var arr_name [n] type`
+`var arr_name = [n] type{element1, element2...}` 
+`arr_name := [...]type{element...}`
+
+> n is a number for the array.
+
+example: 
+
+```Go
+var arr1 [4] int
+arr1[0] = 1
+arr1[1] = 2
+arr1[2] = 3
+arr1[3] = 4
+fmt.Println(arr1[0])  // 打印array的第一个数值
+fmt.Println(arr1[2])  // 打印array的第三个数值
+
+fmt.Println("数组的长度：", len(arr1))  //  容器中实际存储的数据量
+fmt.Println("数组的容量：", cap(arr1))  //  容器中能够存储的最大数据量
+
+// 数组的其它创建方式
+var a [4] int // 同 var a = [4] int
+var b = [4]int{1,2,3,4}
+var c = [5]int{1,2,4}
+var d = [5]int{1:1,3:2}
+var e = [5]int{1:1,3:2}
+.
+.
+.
+<++>
+```
+
 
 ---
 
@@ -378,10 +422,18 @@ fmt.Printf("学生姓名：%s，年龄：%d，性别：%s\n", studentName, age, 
 语法格式：
 
 ```Go
-if 条件表达式{
+if condition {
     //
 }
 ```
+
+```Go
+if statement; condition {
+    //
+}
+```
+
+> 在if里statement的变量，不能在if结构外调用。
 
 ```mermaid
 graph TD
@@ -396,3 +448,223 @@ A -->|false| C
 <br>
 
 ---
+
+## if...else...
+
+```Go
+if 条件{
+    // 条件成立，执行此处的代码
+    A段
+}else{
+    // 条件不成立，执行此处的代码
+    B段
+}
+```
+
+```mermaid
+graph TD
+A{if语句的条件-bool类型}
+B[条件成立-A段代码]
+C[条件不成立-B段代码]
+D[结束]
+A -->|ture| B
+A -->|false| C
+B --> D
+C --> D
+```
+
+<br>
+
+---
+
+## switch
+
+```Go
+switch var1{
+case val1:
+    ...
+case val2:
+    ...
+default:
+    ...
+}
+```
+
+if 所有的case都不满足，则使用default。
+
+```Go
+switch{
+case true:
+    fmt.Println("true..")
+case false:
+    fmt.Println("false..")
+```
+
+```Go
+switch{
+case val1, val3, var4:
+    fmt.Println("Good day!")
+case val2:
+    fmt.Println("Bad day!")
+```
+
+```Go
+n := 2
+switch n {
+case 1:
+    fmt.Println("我是熊大")
+    fmt.Println("我是熊大")
+    fmt.Println("我是熊大")
+case 2:
+    fmt.Println("我是熊二")
+    fmt.Println("我是熊二")
+    break  // 用于强制结束case，意味着switch被强制结束
+    fmt.Println("我是熊二")
+case 3:
+    fmt.Println("我是光头强")
+    fmt.Println("我是光头强")
+    fmt.Println("我是光头强")
+} 
+fmt.Println("main...over...")
+```
+
+```Go
+m := 2
+switch m {
+case 1:
+    fmt.Println("我是第一，不打印。。")
+case 2:
+    fmt.Println("我是第二，打印。。")
+    fallthrough
+case 3:
+    fmt.Println("我是第三，打印。。")  // 因为上一个case结尾有fallthrough，所以case3也被执行
+case 4:
+    fmt.Println("我是第四，不打印。。")
+```
+
+
+**example**
+
+```Go
+num := 5
+switch num {
+case 1:
+    fmt.Println("第一季度")
+case 2:
+    fmt.Println("第二季度")
+case 3:
+    fmt.Println("第三季度")
+case 4:
+    fmt.Println("第四季度")
+default:
+    fmt.Println("数据有误")
+}
+```
+
+```Go
+num1 := 0
+num2 := 0
+oper := ""
+fmt.Println("请输入一个整数：")
+fmt.Scanln(&num1)
+fmt.Println("请再次输入一个整数：")
+fmt.Scanln(&num2)
+fmt.Println("请输入一个操作符：+, -, *, /")
+fmt.Scanln(&oper)
+
+switch oper{
+case "+":
+    fmt.Printf("%d + %d = %d\n", num1, num2, num1 + num2)
+case "-":
+    fmt.Printf("%d - %d = %d\n", num1, num2, num1 - num2)
+case "*":
+    fmt.Printf("%d * %d = %d\n", num1, num2, num1 * num2)
+case "/":
+    fmt.Printf("%d / %d = %d\n", num1, num2, num1 / num2)
+}
+```
+
+```Go
+swtich {
+case 条件1: 条件1结果
+case 条件2: 条件2结果
+case 条件3: 条件3结果
+}
+```
+
+<br>
+
+---
+
+## for
+
+> Go语言的循环结构只有一种 —— for循环，不像其它语言还有while、do while
+
+```Go
+for 表达式1; 表达式2; 表达式3{
+    循环体
+}
+```
+
+```Go
+for condition {  // 相当于其它语言的while循环
+    循环体
+}
+```
+
+```Go
+for {  // 相当于其它语言的while(true)
+    循环体
+}
+```
+
+**example**
+
+```Go
+for i := 1; i <= 5; i++ {
+    fmt.Println(i)
+}
+```
+
+和python一样，有`break`和`continue`，用法也一样。但是多了一种贴标签用法，可以结束指定的某个循环（外层循环），类似于给循环取名。见下：
+
+```Go
+out: for i:=1; i<=5; i++ {
+    for j:=1; j<=5; j++ {
+        if j==2 {
+            break out  //  或者continue out
+        }
+}
+```
+
+这里的"out"就是贴标签用法。
+
+<br>
+
+---
+
+## goto
+
+> 尽量少使用goto语句，容易造成结构混乱。（要灵活运用）
+
+```Go
+goto label;
+..
+..
+label: statement;
+```
+
+```Go
+var a = 10
+LOOP:  // this is a label(can be modified)
+for a < 20 {
+    if a == 15 {
+        a += 1
+        goto LOOP
+    }
+    fmt.Printf("a的值为：%d\n", a)
+    a++
+}
+```
+
+

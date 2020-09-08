@@ -1,3 +1,7 @@
+<style>
+a{text-decoration:none}
+a:hover{text-decoration:none}
+</style>
 
 > All notes guides here!
 
@@ -22,6 +26,9 @@
       + [Goland](/IT/Coding/Go/Goland.md)
       + [Command](/IT/Coding/Go/Go-Command.md)
       + [运算符](/IT/Coding/Go/Go-运算符.md)
+      + [fmt包](/IT/Coding/Go/Package-fmt.md)
+      + [math包](/IT/Coding/Go/Package-math.md)
+      + [time包](/IT/Coding/Go/Package-time.md)
   - [Software](/IT/Software/README.md)
     * [Static-Site-Genator](/IT/Software/Static-Site-Genator/README.md)
       + [Docsify](/IT/Software/Static-Site-Genator/Docsify/README.md)
@@ -33,11 +40,14 @@
         - [Note](/IT/Software/Static-Site-Genator/Hugo/Hugo-Note.md)
         - [Documentation](/IT/Software/Static-Site-Genator/Hugo/Hugo-Documentation/README.md) -- 资料未拷进来
         - [Theme LEARN](/IT/Software/Static-Site-Genator/Hugo/hugo-theme-learn/_index.md)
-      + [VuePress](/IT/Software/Static-Site-Genator/VuePress/)
+      + [VuePress](/IT/Software/Static-Site-Genator/VuePress/README.md)
+        - [Note](/IT/Software/Static-Site-Genator/VuePress/VuePress-Note.md)
+        - [Documentation](/IT/Software/Static-Site-Genator/VuePress/Documentation)
+        - [Documentation-zh](/IT/Software/Static-Site-Genator/VuePress/Documentation/zh)
     * [Vim](/IT/Software/Vim/README.md)
       + [Note](./IT/Software/Vim/Vim-Note.md)
       + [Command](./IT/Software/Vim/Vim-Command.md)
-      + [Vim插件](./IT/Software/Vim/Vim插件.md)
+      + [Vim Plugin](./IT/Software/Vim/Vim-Plugin.md)
       + [Vim遇到的问题](./IT/Software/Vim/Vim遇到的问题.md)
   - [System](/IT/System/README.md)
     * [Arch Linux](/IT/System/Arch-Linux/README.md)
@@ -53,7 +63,8 @@
     * [Nonviolent-Communication-3rd](./Book/Nonviolent-Communication-3rd.md)
 -->
 
-```mermaid
-graph TB
-  id1(A)-->id2[B]
-```
+---
+
+少年辛苦终身事，莫向光阴惰寸功。
+
+<a href="#/./Book/">　</a>
