@@ -114,7 +114,9 @@ s1 = "王二狗"
 **概念：** 存储一组相同数据类型的数据结构。可理解为容器，存储一组数据。
 
 `var arr_name [n] type`
+
 `var arr_name = [n] type{element1, element2...}` 
+
 `arr_name := [...]type{element...}`
 
 > n is a number for the array.

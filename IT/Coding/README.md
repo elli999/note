@@ -4,4 +4,7 @@
   + [Installation](/IT/Coding/Go/Go-Installation.md)
   + [Goland](/IT/Coding/Go/Goland.md)
   + [Command](/IT/Coding/Go/Go-Command.md)
-  + [ÔËËã·û](/IT/Coding/Go/Go-ÔËËã·û.md)
+  + [è¿ç®—ç¬¦](/IT/Coding/Go/Go-è¿ç®—ç¬¦.md)
+  + [fmtåŒ…](/IT/Coding/Go/Package-fmt.md)
+  + [mathåŒ…](/IT/Coding/Go/Package-math.md)
+  + [timeåŒ…](/IT/Coding/Go/Package-time.md)
