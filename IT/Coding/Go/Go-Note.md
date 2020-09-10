@@ -13,6 +13,8 @@
         + [字符串string](#字符串string)
     - [复合数据类型](#复合数据类型)
         + [array数组](#array数组)
+            * [range](#range)
+            * [array的数据类型](#array的数据类型)
 * [print&scan](#print-amp-scan)
     - [fmt包：输入、输出](#fmt包：输入、输出)
     - [bufio包](#bufio包)
@@ -113,6 +115,8 @@ s1 = "王二狗"
 
 **概念：** 存储一组相同数据类型的数据结构。可理解为容器，存储一组数据。
 
+array开辟的是连续的内存。
+
 `var arr_name [n] type`
 
 `var arr_name = [n] type{element1, element2...}` 
@@ -146,6 +150,20 @@ var e = [5]int{1:1,3:2}
 .
 <++>
 ```
+
+##### range
+
+用于数组的遍历。
+
+```Go
+for index, value := range arr1{
+    fmt.Printf("下标是：%d，数值是：%d\n", index, value)
+}
+```
+
+##### array的数据类型
+
+`[size]type`
 
 
 ---
