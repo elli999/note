@@ -1,29 +1,7 @@
 
 - [Coding](/IT/Coding/README.md)
-  * [Go](/IT/Coding/Go/README.md)
-    + [Note](/IT/Coding/Go/Go-Note.md)
-    + [Installation](/IT/Coding/Go/Go-Installation.md)
-    + [Goland](/IT/Coding/Go/Goland.md)
-    + [Command](/IT/Coding/Go/Go-Command.md)
-    + [运算符](/IT/Coding/Go/Go-运算符.md)
 - [Software](/IT/Software/README.md)
-  * [Static-Site-Genator](/IT/Software/Static-Site-Genator/)
-    + Docsify
-      - [Documentation](/IT/Software/Static-Site-Genator/Docsify/Documentation/README.md)
-      - [Docsify Note](/IT/Software/Static-Site-Genator/Docsify/Docsify-Note.md)
-    + [Hugo](/IT/Software/Static-Site-Genator/Hugo/README.md)
-      - [Note](/IT/Software/Static-Site-Genator/Hugo/Hugo-Note.md)
-      - [Command](/IT/Software/Static-Site-Genator/Hugo/Hugo-Command.md)
-      - [Documentation](/IT/Software/Static-Site-Genator/Hugo/Hugo-Documentation/README.md) -- 资料未拷进来
-      - [Theme LEARN](/IT/Software/Static-Site-Genator/Hugo/hugo-theme-learn/_index.md)
-    + [VuePress](/IT/Software/Static-Site-Genator/VuePress/)
-      * [Documentation](/IT/Software/Static-Site-Genator/VuePress/Documentation/)
-      * [Documentation-zh](/IT/Software/Static-Site-Genator/VuePress/Documentation/zh/)
 - [System](/IT/System/README.md)
-  * [Arch Linux](/IT/System/Arch-Linux/README.md)
-    + [Installation](/IT/System/Arch-Linux/Arch-Installation.md)
-  * Vim
-    + [Vim命令](./IT/Software/Vim/Vim命令.md)
-    + [Vim插件](./IT/Software/Vim/Vim插件.md)
-    + [Vim笔记](./IT/Software/Vim/Vim笔记.md)
-    + [Vim遇到的问题](./IT/Software/Vim/Vim遇到的问题.md)
+
+
+

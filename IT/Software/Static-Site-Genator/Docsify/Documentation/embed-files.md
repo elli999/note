@@ -1,5 +1,7 @@
 # Embed files
 
+> 文件嵌入 https://docsify.js.org/#/zh-cn/embed-files
+
 With docsify 4.6 it is now possible to embed any type of file.
 
 You can embed these files as video, audio, iframes, or code blocks, and even Markdown files can even be embedded directly into the document.
