@@ -3,6 +3,7 @@
 
 * [GOROOT](#goroot)
 * [GOPATH](#gopath)
+* [深拷贝和浅拷贝](#深拷贝和浅拷贝)
 * [数据类型](#数据类型)
     - [基本数据类型](#基本数据类型)
         + [布尔类型bool](#布尔类型bool)
@@ -68,6 +69,18 @@ There are three subdirectory in `GOPATH`:
 > `src` -- In **src**, every subdirectory is a package. Source code files are stored in package.
 > `pkg` -- When compilation is done, GOLANG will creat a result file in here.
 > `bin` -- A folder full of generated executable file.
+
+<br>
+
+---
+
+## 深拷贝和浅拷贝
+
+
+
+<br>
+
+---
 
 
 ## 数据类型
