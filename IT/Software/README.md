@@ -4,3 +4,7 @@
 * [Input](/IT/Software/Input/README.md)
 * [Static-Site-Genator](/IT/Software/Static-Site-Genator/README.md)
 * [Vim](/IT/Software/Vim/README.md)
+
+###### Android
+
+* [Termux](/IT/Software/Termux.md)

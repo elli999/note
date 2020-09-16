@@ -56,9 +56,11 @@
       + [Command](./IT/Software/Vim/Vim-Command.md)
       + [Vim Plugin](./IT/Software/Vim/Vim-Plugin.md)
       + [Vim遇到的问题](./IT/Software/Vim/Vim遇到的问题.md)
+    * [Termux](/IT/Software/Termux.md)
   - [System](/IT/System/README.md)
     * [Arch Linux](/IT/System/Arch-Linux/README.md)
       + [Installation](/IT/System/Arch-Linux/Arch-Installation.md)
++ [笔记方法学](/笔记方法学/README.md)
 
 ---
 

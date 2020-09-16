@@ -2,6 +2,7 @@
 <!-- vim-markdown-toc Redcarpet -->
 
 * [Hotkeys](#hotkeys)
+* [小技巧](#小技巧)
 
 <!-- vim-markdown-toc -->
 
@@ -50,4 +51,7 @@ ALT+SHIFT+UP/DOWN，可以将光标所在行的代码上下移动。
 CTRL+SHIFT+U，可以将选中内容进行大小写转化。
 ```
 
+## 小技巧
+
+在Goland中，按住Ctrl加鼠标左键点击函数，可查阅该函数的手册。
 

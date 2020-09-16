@@ -1,6 +1,7 @@
 
 <!-- vim-markdown-toc Redcarpet -->
 
+* [Go手册](#go手册)
 * [GOROOT](#goroot)
 * [GOPATH](#gopath)
 * [深拷贝和浅拷贝](#深拷贝和浅拷贝)
@@ -43,10 +44,15 @@
 * [switch](#switch)
 * [for](#for)
 * [goto](#goto)
+* [map集合](#map集合)
 
 <!-- vim-markdown-toc -->
 
 ---
+
+## Go手册
+
+https://golang.google.cn/
 
 ## GOROOT
 
@@ -720,4 +726,9 @@ for a < 20 {
 }
 ```
 
+## map集合
 
+> 相当于python的dict？
+
+* map是无序的<++>
+* 
