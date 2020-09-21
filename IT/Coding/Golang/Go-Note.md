@@ -7,10 +7,10 @@
 * [深拷贝和浅拷贝](#深拷贝和浅拷贝)
 * [数据类型](#数据类型)
     - [基本数据类型](#基本数据类型)
-        + [布尔类型bool](#布尔类型bool)
+        + [bool布尔类型](#bool布尔类型)
     - [数值类型](#数值类型)
-        + [整型](#整型)
-        + [浮点型](#浮点型)
+        + [int整型](#int整型)
+        + [float浮点型](#float浮点型)
         + [xx型](#xx型)
         + [字符串string](#字符串string)
     - [复合数据类型](#复合数据类型)
@@ -95,14 +95,14 @@ There are three subdirectory in `GOPATH`:
 
 数值、浮点、字符串
 
-#### 布尔类型bool
+#### bool布尔类型
 
 取值
 
 ### 数值类型
 
-#### 整型
-#### 浮点型
+#### int整型
+#### float浮点型
 #### xx型
 
 #### 字符串string
@@ -129,7 +129,7 @@ s1 = "王二狗"
 
 ### 复合数据类型
 
-包含array, slice, map, struct, pointer, function, channel ...
+包含array, slice, map, struct, pointer, interface, function, channel ...
 
 #### array数组
 
