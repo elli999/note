@@ -7,7 +7,7 @@
 
 + [Note](/IT/Coding/Golang/Go-Note.md)
 + [Installation](/IT/Coding/Golang/Go-Installation.md)
-+ [Golandlang](/IT/Coding/Go/Goland.md)
++ [Goland](/IT/Coding/Golang/Goland.md)
 + [Command](/IT/Coding/Golang/Go-Command.md)
 + [slice](/IT/Coding/Golang/Go-Slice.md)
 + [运算符](/IT/Coding/Golang/Go-运算符.md)
@@ -16,7 +16,8 @@
 + [interface](/IT/Coding/Golang/Go-interface.md)
 + [指针](/IT/Coding/Golang/Go-指针.md)
 + [type关键字](/IT/Coding/Golang/Go-type关键字.md)
-+ [error](/IT/Coding/Golang/Go-error.md)
++ [error错误](/IT/Coding/Golang/Go-error.md)
++ [package](/IT/Coding/Golang/Go-package.md)
 + [fmt包](/IT/Coding/Golang/Package-fmt.md)
 + [math包](/IT/Coding/Golang/Package-math.md)
 + [sort包](/IT/Coding/Golang/Package-sort.md)
@@ -201,7 +202,7 @@
 
   
 
-#### Day15 - [错误处理](./Day01-15(Go语言基础)/day15_错误处理.md)
+#### Day15 - [错误处理](/IT/Coding/Golang/Go-error.md)
 
 - 错误 - 错误的概念 / 错误的用法 /
 
@@ -213,7 +214,7 @@
 
   
 
-### Day16~20 - [Go语言基础进阶](./Day16-20(Go语言基础进阶))
+### Day16~20 - [Go语言基础进阶](./Day16-20(Go语言基础进阶)
 
 #### Day16 - [I/O操作](./goon.md)
 - I / O  - 什么是I/O / os包的使用

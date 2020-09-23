@@ -1,10 +1,30 @@
-# 错误处理
 
-转载自：
+<!-- Vim TOC
++ [错误处理](#错误处理)
+  * [1.1 什么是错误](#1-1-什么是错误)
+  * [1.2 演示错误](#1-2-演示错误)
+  * [1.3 错误类型表示](#1-3-错误类型表示)
+  * [1.4 自定义错误](#1-4-自定义错误)
+  * [1.5 panic()和recover()](#1.5-panic和recover) //不知道怎么表示“.”和space等特殊符号
+  * [1.6 错误处理的正确姿势](#1-6-错误处理的正确姿势)
+  * [1.7 异常处理的正确姿势](#1-7-异常处理的正确姿势)
+-->
 
-> @author：韩茹
->
-> 版权所有：北京千锋互联科技有限公司
+<!-- Docsify TOC -->
++ [错误处理](#错误处理)
+  * [1.1 什么是错误](#1-1-什么是错误)
+  * [1.2 演示错误](#1-2-演示错误)
+  * [1.3 错误类型表示](#1-3-错误类型表示)
+  * [1.4 自定义错误](#1-4-自定义错误)
+  * [1.5 panic()和recover()](#_15-panic和recover)
+  * [1.6 错误处理的正确姿势](#1-6-错误处理的正确姿势)
+  * [1.7 异常处理的正确姿势](#1-7-异常处理的正确姿势)
+
+
+
+
+## 错误处理
+
 
 在实际工程项目中，我们希望通过程序的错误信息快速定位问题，但是又不喜欢错误处理代码写的冗余而又啰嗦。`Go`语言没有提供像`Java`、`C#`语言中的`try...catch`异常处理方式，而是通过函数返回值逐层往上抛。这种设计，鼓励工程师在代码中显式的检查错误，而非忽略错误，好处就是避免漏掉本应处理的错误。但是带来一个弊端，让代码啰嗦。
 
@@ -544,19 +564,81 @@ error: width -9.00 is less than zero
 
 
 
-## 1.5 panic()和recover()
+## 1.5 panic和recover
+
+https://www.bilibili.com/video/BV1jJ411c7s3?p=99
 
 Golang中引入两个内置函数panic和recover来触发和终止异常处理流程，同时引入关键字defer来延迟执行defer后面的函数。
 一直等到包含defer语句的函数执行完毕时，延迟函数（defer后的函数）才会被执行，而不管包含defer语句的函数是通过return的正常结束，还是由于panic导致的异常结束。你可以在一个函数中执行多条defer语句，它们的执行顺序与声明顺序相反。
 当程序运行时，如果遇到引用空指针、下标越界或显式调用panic函数等情况，则先触发panic函数的执行，然后调用延迟函数。调用者继续传递panic，因此该过程一直在调用栈中重复发生：函数停止执行，调用延迟执行函数等。如果一路在延迟函数中没有recover函数的调用，则会到达该协程的起点，该协程结束，然后终止其他所有协程，包括主协程（类似于C语言中的主线程，该协程ID为1）。
 
-panic：
- 1、内建函数
- 2、假如函数F中书写了panic语句，会终止其后要执行的代码，在panic所在函数F内如果存在要执行的defer函数列表，按照defer的逆序执行
- 3、返回函数F的调用者G，在G中，调用函数F语句之后的代码不会执行，假如函数G中存在要执行的defer函数列表，按照defer的逆序执行，这里的defer 有点类似 try-catch-finally 中的 finally
- 4、直到goroutine整个退出，并报告错误
+**panic()**
 
-recover：
+panic，恐慌。
+
+EK：如果在 function中有panic语句时，程序会 **不执行** **所有** 在panic后面的语句（包括function外面），如果在panic之前有defer语句，则会在结束程序前完成defer语句的执行。
+
+1、内建函数
+2、假如函数F中书写了panic语句，会终止其后要执行的代码，在panic所在函数F内如果存在要执行的defer函数列表，按照defer的逆序执行
+3、恐慌的传递：假如函数F中书写了panic语句，而G调用了函数F，则panic会传递到G中的调用函数F的语句处，在G中的调用F语句之后的代码都不会执行。假如函数G中存在在调用函数F的语句前的defer语句，则按照defer的逆序执行，这里的defer 有点类似 try-catch-finally 中的 finally。
+4、直到goroutine整个退出，并报告错误
+ 
+**示例代码**
+
+```Go
+func main(){
+    funA()
+    defer myprint("defer main: 3...")
+    funB()
+    defer myprint("defer main: 4...")
+    
+    fmt.Println("main...over...")
+}
+
+func myprint(s string){
+    fmt.Println(s)
+}
+
+func funA(){
+    fmt.Println("我是函数funA()...")
+}
+
+func funB(){
+    fmt.Println("我是函数funB()...")
+    defer myprint("defer funB(): 1...")
+    for i:=1; i<=10; i++{
+        fmt.Println("i: ", i)
+        if i == 5{
+            // 让程序中断
+            panic("funB函数，恐慌了")
+        }
+    }
+    defer myprint("defer funB(): 2...")
+}
+```
+
+**运行结果**
+
+```输出
+我是函数funA()...
+我是函数funB()...
+i: 1
+i: 2
+i: 3
+i: 4
+i: 5  // 运行到这里，遇到panic了，但是前面有defer语句未执行，程序会在结束前把在栈里面的defer完成执行。
+defer funB(): 1...
+defer funB(): 3...
+```
+
+其中的“defer funB(): 2..”“defer funB(): 4..”均在panic后，不会被程序执行。
+
+**recover()**
+
+`recover()`是用来捕获panic的。一般用在`defer`语句当中，捕获到`panic`之后会让程序恢复正常执行。
+
+> 如果按“try ... catch ...”逻辑来理解的话，可以把`panic`理解为“try语句”（抛出异常），在`defer`中使用`recover`理解为“catch”（捕获异常）。
+
  1、内建函数
  2、用来控制一个goroutine的panicking行为，捕获panic，从而影响应用的行为
  3、一般的调用建议
@@ -565,6 +647,65 @@ recover：
 
 简单来讲：go中可以抛出一个panic的异常，然后在defer中通过recover捕获这个异常，然后正常处理。
 
+**示例代码**
+
+```Go
+func main(){
+    funA()
+    defer myprint("defer main: 3...")
+    funB()
+    defer myprint("defer main: 4...")
+    
+    fmt.Println("main...over...")
+}
+
+func myprint(s string){
+    fmt.Println(s)
+}
+
+func funA(){
+    fmt.Println("我是函数funA()...")
+}
+
+func funB(){
+    defer func(){
+        if msg :=recover();msg != nil {  // 因为后面的panic传的是str类型，所以这里recover接收的也是str
+            fmt.Pringln(msg, "程序恢复啦！")
+        }
+    }()
+    fmt.Println("我是函数funB()...")
+    defer myprint("defer funB(): 1...")
+    for i:=1; i<=10; i++{
+        fmt.Println("i: ", i)
+        if i == 5{
+            // 让程序中断
+            panic("funB函数，恐慌了")
+        }
+    }
+    defer myprint("defer funB(): 2...")
+}
+```
+
+**运行结果**
+
+```输出
+我是函数funA()...
+我是函数funB()...
+i: 1
+i: 2
+i: 3
+i: 4
+i: 5  // 运行到这里，遇到panic了，但是前面有defer语句未执行，程序会在结束前把在栈里面的defer完成执行。
+defer funB(): 1...
+funB函数，恐慌了 程序恢复啦！
+main...over...
+defer funB(): 4...
+defer funB(): 3...
+```
+
+其中的`defer myprint("defer funB(): 2...")`在panic后，不会被程序执行。
+    
+而`defer myprint("defer main: 4...")` 与 `fmt.Println("main...over...")` 在recover后，恢复了，正常执行。
 
 
 错误和异常从Golang机制上讲，就是error和panic的区别。很多其他语言也一样，比如C++/Java，没有error但有errno，没有panic但有throw。
@@ -576,9 +717,9 @@ Golang错误和异常是可以互相转换的：
 
  
 
-**什么情况下用错误表达，什么情况下用异常表达，就得有一套规则，否则很容易出现一切皆错误或一切皆异常的情况。** 
+**什么情况下用错误error表达，什么情况下用异常panic表达，就得有一套规则，否则很容易出现一切皆错误或一切皆异常的情况。** 
 
-以下给出异常处理的作用域（场景）：
+以下给出异常panic处理的作用域（场景）：
 
 1. 空指针引用
 2. 下标越界
@@ -589,15 +730,13 @@ Golang错误和异常是可以互相转换的：
 
 其他场景我们使用错误处理，这使得我们的函数接口很精炼。对于异常，我们可以选择在一个合适的上游去recover，并打印堆栈信息，使得部署后的程序不会终止。
 
- 
-
-**说明： Golang错误处理方式一直是很多人诟病的地方，有些人吐槽说一半的代码都是"if err != nil { / 打印 && 错误处理 / }"，严重影响正常的处理逻辑。当我们区分错误和异常，根据规则设计函数，就会大大提高可读性和可维护性。**
+> Golang错误处理方式一直是很多人诟病的地方，有些人吐槽说一半的代码都是"if err != nil { / 打印 && 错误处理 / }"，严重影响正常的处理逻辑。当我们区分错误和异常，根据规则设计函数，就会大大提高可读性和可维护性。
 
  
 
-## 1.6 错误处理的正确姿势
+## 1.6 错误处理的正确方式
 
-**姿势一：失败的原因只有一个时，不使用error**
+**方式一：失败的原因只有一个时，不使用error**
 
 我们看一个案例：
 
@@ -629,7 +768,7 @@ func (self *AgentContext) IsValidHostType(hostType string) bool {
 
  
 
-**姿势二：没有失败时，不使用error**
+**方式二：没有失败时，不使用error**
 
 error在Golang中是如此的流行，以至于很多人设计函数时不管三七二十一都使用error，即使没有一个失败原因。
 我们看一下示例代码：
@@ -676,7 +815,7 @@ self.setTenantId()
 
  
 
-**姿势三：error应放在返回值类型列表的最后**
+**方式三：error应放在返回值类型列表的最后**
 
 对于返回值类型error，用来传递错误信息，在Golang中通常放在最后一个。
 
@@ -700,7 +839,7 @@ if !ok {
 
  
 
-**姿势四：错误值统一定义，而不是跟着感觉走**
+**方式四：错误值统一定义，而不是跟着感觉走**
 
 很多人写代码时，到处return errors.New(value)，而错误value在表达同一个含义时也可能形式不同，比如“记录不存在”的错误value可能为：
 
@@ -724,7 +863,7 @@ var ERR_UNEXPECTED_EOF = errors.New("unexpected EOF")
 
   
 
-**姿势五：错误逐层传递时，层层都加日志**
+**方式五：错误逐层传递时，层层都加日志**
 
 层层都加日志非常方便故障定位。
 
@@ -732,7 +871,7 @@ var ERR_UNEXPECTED_EOF = errors.New("unexpected EOF")
 
 
 
-**姿势六：错误处理使用defer**
+**方式六：错误处理使用defer**
 
 我们一般通过判断error的值来处理错误，如果当前操作失败，需要将本函数中已经create的资源destroy掉，示例代码如下：
 
@@ -809,7 +948,7 @@ func deferDemo() error {
 }
 ```
 
-**姿势七：当尝试几次可以避免失败时，不要立即返回错误**
+**方式七：当尝试几次可以避免失败时，不要立即返回错误**
 
 如果错误的发生是偶然性的，或由不可预知的问题导致。一个明智的选择是重新尝试失败的操作，有时第二次或第三次尝试时会成功。在重试时，我们需要限制重试的时间间隔或重试的次数，防止无限制的重试。
 
@@ -820,13 +959,13 @@ func deferDemo() error {
 
  
 
-**姿势八：当上层函数不关心错误时，建议不返回error**
+**方式八：当上层函数不关心错误时，建议不返回error**
 
 对于一些资源清理相关的函数（destroy/delete/clear），如果子函数出错，打印日志即可，而无需将错误进一步反馈到上层函数，因为一般情况下，上层函数是不关心执行结果的，或者即使关心也无能为力，于是我们建议将相关函数设计为不返回error。
 
  
 
-**姿势九：当发生错误时，不忽略有用的返回值**
+**方式九：当发生错误时，不忽略有用的返回值**
 
 通常，当函数返回non-nil的error时，其他的返回值是未定义的(undefined)，这些未定义的返回值应该被忽略。然而，有少部分函数在发生错误时，仍然会返回一些有用的返回值。比如，当读取文件发生错误时，Read函数会返回可以读取的字节数以及错误信息。对于这种情况，应该将读取到的字符串和错误信息一起打印出来。
 
@@ -964,23 +1103,3 @@ func MustCompile(str string) *Regexp {
 本文部分内容引自https://www.jianshu.com/p/f30da01eea97
 
 
-
-
-
-
-
-千锋Go语言的学习群：784190273
-
-作者B站：
-
-https://space.bilibili.com/353694001
-
-对应视频地址：
-
-https://www.bilibili.com/video/av56018934
-
-https://www.bilibili.com/video/av47467197
-
-源代码：
-
-https://github.com/rubyhan1314/go_advanced
