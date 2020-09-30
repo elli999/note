@@ -24,17 +24,23 @@ Help is help, just help~~
 
 ## go run
 
-Run go main file.
+Direct run go file without compile.
+
+> usually for main file
 
 **Format:** `go run [filename.go]`
 
+
+
 ## go build
 
-把当前路径下的go文件编译成可执行的程序。
+Compile current path program (compile *.go file into *.exe file), or compile the specified [filename.go] file.
 
-> `go build`会自动忽略目录下以“_”或者“.”开头的go文件。
+> `go build` will ignore the *.go file which starts with "_" or "." in current path.(EK: just current path? If this package import other package?)
 
-**Format:** `go build` 
+**Format:** `go build [filename.go]`
+
+
 
 **Parameters**
 
@@ -68,14 +74,14 @@ SET GOARCH=amd64  // 目标处理器架构是amd64
 
 ## go install
 
-![go install process](./Go-Command/go-install.png)
-
-`go install`就是把编译完成后得到的可执行文件放置到`GOPATH`的`bin`目录下。因为环境变量中配置了`GOPATH`的`bin`目录，所以可以在任何路径运行可执行文件。
+`go install`就是直接把编译生成exe文件放置到`GOPATH`的`bin`目录下。因为环境变量中配置了`GOPATH`的`bin`目录，所以可以在任何路径运行可执行文件。
 
 **Format:** `go install [package_name]`
 
-
 在任意路径下执行`go install package_name`，Go会自动在`GOROOT`及`GOPATH`下的`src`目录寻找对应名字为“package_name”的包（文件夹）进行编译；如果当前已经在某个package文件夹下，则可以直接执行`go install`编译。
+
+![go install process](./Go-Command/go-install.png)
+
 
 ## go get
 

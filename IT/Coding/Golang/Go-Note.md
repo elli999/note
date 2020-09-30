@@ -72,9 +72,9 @@ Gopath is Go workspace that save all GO project and code file.
 
 There are three subdirectory in `GOPATH`:
 
-> `src` -- In **src**, every subdirectory is a package. Source code files are stored in package.
-> `pkg` -- When compilation is done, GOLANG will creat a result file in here.
-> `bin` -- A folder full of generated executable file.
+> `src` -- In **src**, every subdirectory is a package. Code files are stored in package.
+> `pkg` -- When a program has been compiled, the compiled file will be created here.
+> `bin` -- A folder of generated executable file.
 
 <br>
 

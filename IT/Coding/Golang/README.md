@@ -5,6 +5,7 @@
 >
 > 例如：我不知道defer是什么，在此页搜“defer”，发现分类在“函数”内，然后就可以点击“function函数”页面查看了。
 
++ [Intro](/IT/Coding/Golang/Go-Intro.md)
 + [Note](/IT/Coding/Golang/Go-Note.md)
 + [Installation](/IT/Coding/Golang/Go-Installation.md)
 + [Goland](/IT/Coding/Golang/Goland.md)
@@ -33,11 +34,12 @@
 > 所以本笔记参考了千锋教育的韩茹老师的[Golang - 100天从新手到大师](https://www.bilibili.com/video/BV1jJ411c7s3)教程的学习顺序，并以该课程为模板编写了这套Go笔记。（EK：之后会重新整理，成为自己学习消化后的个人笔记）
 
 [Golang - 100天从新手到大师 —— 课程视频](https://www.bilibili.com/video/BV1jJ411c7s3)
+
 [Golang - 100天从新手到大师 —— 笔记资料](https://github.com/rubyhan1314/Golang-100-Days)
 
 ## Golang - 100天从新手到大师
 
-### Day01~15 - [Go语言基础](./Day01-15(Go语言基础))
+### Day01~15 - Go语言基础
 
 #### Day01 - [Go语言初识](./Day01-15(Go语言基础)/day01_第8节_第一个程序HelloWorld.md)
 
