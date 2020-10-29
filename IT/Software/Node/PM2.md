@@ -14,6 +14,9 @@
     - [delete](#delete)
     - [list,ls,status](#list-ls-status)
     - [logs](#logs)
+    - [monit](#monit)
+    - [plus](#plus)
+    - [update](#update)
 
 <!-- vim-markdown-toc -->
 
@@ -97,6 +100,30 @@ To dig in older logs:
 
 ```
 pm2 logs --lines 200
+```
+
+### monit
+
+all progress monitor
+
+```
+pm2 monit
+```
+
+### plus
+
+Web based dashboard, cross servers with diagnostic system:
+
+> Need account?
+
+```
+pm2 plus
+```
+
+### update
+
+```
+pm2 update
 ```
 
 
